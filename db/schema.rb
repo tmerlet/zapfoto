@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140630105844) do
     t.string   "name"
     t.string   "state"
     t.boolean  "current"
-    t.integer  "size"
+    t.integer  "size",       default: 25, null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,16 +40,17 @@ ActiveRecord::Schema.define(version: 20140630105844) do
   add_index "rolls", ["user_id"], name: "index_rolls_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "admin",                  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
