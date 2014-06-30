@@ -35,6 +35,7 @@ gem 'ransack'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'high_voltage', '~> 2.2.0'
+gem 'omniauth-facebook'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
