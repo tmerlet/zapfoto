@@ -34,6 +34,7 @@ gem 'devise'
 gem 'ransack'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'high_voltage', '~> 2.2.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -47,7 +48,6 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'hirb'
