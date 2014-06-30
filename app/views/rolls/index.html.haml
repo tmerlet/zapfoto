@@ -1,0 +1,27 @@
+%h1 Listing rolls
+
+%table
+  %tr
+    %th Name
+    %th State
+    %th Current
+    %th Size
+    %th User
+    %th
+    %th
+    %th
+
+  - @rolls.each do |roll|
+    %tr
+      %td= roll.name
+      %td= roll.state
+      %td= roll.current
+      %td= roll.size
+      %td= roll.user
+      %td= link_to 'Show', roll
+      %td= link_to 'Edit', edit_roll_path(roll)
+      %td= link_to 'Destroy', roll, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Roll', new_roll_path

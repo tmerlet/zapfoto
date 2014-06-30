@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  roll_id: 
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  image: MyString
+  roll_id: 
+  latitude: 1.5
+  longitude: 1.5

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Image:
+  = @photo.image
+%p
+  %b Roll:
+  = @photo.roll
+%p
+  %b Latitude:
+  = @photo.latitude
+%p
+  %b Longitude:
+  = @photo.longitude
+
+= link_to 'Edit', edit_photo_path(@photo)
+\|
+= link_to 'Back', photos_path
