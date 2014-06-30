@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Zapfoto::Application.config.secret_key_base = '3ea2cf8609851ac532acd25558b208876b5c86d7f818636dd93561f1fd6bd9c93123f3e1315fef5cbf85c26ad9d93120649fd30a632c30cd7bd4c75e6223c8a6'
+Zapfoto::Application.config.secret_key_base = 'd3e072148b8f534aa89e76ea13f9d254ea57c765d0055ece89b2767f48b537f8066d68dec086739513a3f50b2b8305623798f41b5cc85ffd5a9266e950982fc8'
