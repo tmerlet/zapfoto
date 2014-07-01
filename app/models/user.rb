@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def has_current_roll?
-    rolls.select{ |roll| roll.current }.any?
+  def current_roll
+    rolls.select{ |roll| roll.current }.first
   end
 end

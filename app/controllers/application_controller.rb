@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    if current_user.has_current_roll?
-      session["user_return_to"] || rolls_path
+    if current_user.current_roll
+      session["user_return_to"] || roll_path(current_user.current_roll)
     else
       session["user_return_to"] || new_roll_path
     end
