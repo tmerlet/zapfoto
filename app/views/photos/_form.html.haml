@@ -8,10 +8,7 @@
 
   .field
     = f.label :image
-    = f.text_field :image
-  .field
-    = f.label :roll
-    = f.text_field :roll
+    = f.file_field :image, {type: "file", capture: "camera", accept: "image/*", id:"cameraInput"}
   .field
     = f.label :latitude
     = f.text_field :latitude
