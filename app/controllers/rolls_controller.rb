@@ -12,6 +12,7 @@ class RollsController < ApplicationController
   # GET /rolls/1.json
   def show
     @photo = Photo.new
+    @photos = @roll.photos
   end
 
   # GET /rolls/new

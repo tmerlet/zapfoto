@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'haml-rails'
 gem 'devise'
+gem 'cancan'
 gem 'ransack'
 gem 'rmagick'
 gem 'carrierwave'
