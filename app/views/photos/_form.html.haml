@@ -7,13 +7,5 @@
           %li= msg
 
   .field
-    = f.label :image
-    = f.file_field :image, {type: "file", capture: "camera", accept: "image/*", id:"cameraInput"}
-  .field
-    = f.label :latitude
-    = f.text_field :latitude
-  .field
-    = f.label :longitude
-    = f.text_field :longitude
-  .actions
-    = f.submit 'Save'
+    = f.file_field :image, {type: "file", capture: "camera", accept: "image/*", id:"uploadMe"}
+= button_tag "Take Photo", {class: "btn btn-primary btn-block", id: "clickMe"}

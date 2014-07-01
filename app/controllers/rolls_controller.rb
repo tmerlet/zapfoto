@@ -1,5 +1,6 @@
 class RollsController < ApplicationController
   before_action :set_roll, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /rolls
   # GET /rolls.json
@@ -10,6 +11,7 @@ class RollsController < ApplicationController
   # GET /rolls/1
   # GET /rolls/1.json
   def show
+    @photo = Photo.new
   end
 
   # GET /rolls/new
