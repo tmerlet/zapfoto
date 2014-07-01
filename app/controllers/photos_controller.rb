@@ -14,6 +14,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
+    @roll = Roll.find(params[:roll_id])
     @photo = Photo.new
   end
 
@@ -24,11 +25,12 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
+    @roll = Roll.find(params[:roll_id])
+    @photo = @roll.photos.build(photo_params)
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+        format.html { redirect_to roll_path(@roll), notice: 'Photo was successfully created.' }
         format.json { render action: 'show', status: :created, location: @photo }
       else
         format.html { render action: 'new' }

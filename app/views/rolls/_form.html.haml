@@ -10,16 +10,7 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :current
-    = f.check_box :current
-  .field
     = f.label :size
-    = f.number_field :size
-  .field
-    = f.label :user
-    = f.text_field :user
+    = f.select :size, options_for_select([25, 15, 10]), {}, {class: "form-control"}
   .actions
     = f.submit 'Save'

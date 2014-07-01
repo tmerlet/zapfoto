@@ -4,18 +4,10 @@
   %b Name:
   = @roll.name
 %p
-  %b State:
-  = @roll.state
-%p
-  %b Current:
-  = @roll.current
-%p
   %b Size:
   = @roll.size
-%p
-  %b User:
-  = @roll.user
-
+= link_to 'New Photo', new_roll_photo_path(@roll)
+\|
 = link_to 'Edit', edit_roll_path(@roll)
 \|
 = link_to 'Back', rolls_path

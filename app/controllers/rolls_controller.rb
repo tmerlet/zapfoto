@@ -24,7 +24,7 @@ class RollsController < ApplicationController
   # POST /rolls
   # POST /rolls.json
   def create
-    @roll = Roll.new(roll_params)
+    @roll = current_user.rolls.build(roll_params)
 
     respond_to do |format|
       if @roll.save
@@ -69,6 +69,6 @@ class RollsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def roll_params
-      params.require(:roll).permit(:name, :state, :current, :size, :user_id)
+      params.require(:roll).permit(:name, :size)
     end
 end

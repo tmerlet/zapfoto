@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20140630133702) do
 
   create_table "rolls", force: true do |t|
     t.string   "name"
-    t.string   "state"
-    t.boolean  "current"
-    t.integer  "size",       default: 25, null: false
+    t.string   "state",      default: "filling", null: false
+    t.boolean  "current",    default: true,      null: false
+    t.integer  "size",       default: 25,        null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
