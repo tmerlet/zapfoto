@@ -6,6 +6,7 @@ class RollsController < ApplicationController
   # GET /rolls.json
   def index
     @rolls = Roll.all
+    authorize! :index, @rolls
   end
 
   # GET /rolls/1
@@ -13,21 +14,25 @@ class RollsController < ApplicationController
   def show
     @photo = Photo.new
     @photos = @roll.photos
+    authorize! :show, @roll
   end
 
   # GET /rolls/new
   def new
     @roll = Roll.new
+    authorize! :new, @roll
   end
 
   # GET /rolls/1/edit
   def edit
+    authorize! :edit, @roll
   end
 
   # POST /rolls
   # POST /rolls.json
   def create
     @roll = current_user.rolls.build(roll_params)
+    authorize! :create, @roll
 
     respond_to do |format|
       if @roll.save
@@ -43,6 +48,8 @@ class RollsController < ApplicationController
   # PATCH/PUT /rolls/1
   # PATCH/PUT /rolls/1.json
   def update
+    authorize! :update, @roll
+
     respond_to do |format|
       if @roll.update(roll_params)
         format.html { redirect_to @roll, notice: 'Roll was successfully updated.' }
@@ -58,6 +65,8 @@ class RollsController < ApplicationController
   # DELETE /rolls/1.json
   def destroy
     @roll.destroy
+    authorize! :destroy, @roll
+    
     respond_to do |format|
       format.html { redirect_to rolls_url }
       format.json { head :no_content }

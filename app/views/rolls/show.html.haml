@@ -1,11 +1,13 @@
-%p#notice= notice
+- if @roll.available_photos == 0
+  %h1 Roll Full
+  = link_to 'New Roll', new_roll_path
+- else
+  %p
+    %b Name:
+    = @roll.name
 
-%p
-  %b Name:
-  = @roll.name
+  %p
+    %b Remaining Photos:
+    = @roll.available_photos
 
-%p
-  %b Remaining Photos:
-  = @roll.available_photos
-
-= render partial: "photos/form"
+  = render partial: "photos/form"

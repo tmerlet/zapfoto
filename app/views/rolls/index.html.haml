@@ -7,6 +7,7 @@
     %th Current
     %th Size
     %th User
+    %th Remaining
     %th
     %th
     %th
@@ -17,7 +18,8 @@
       %td= roll.state
       %td= roll.current
       %td= roll.size
-      %td= roll.user
+      %td= roll.user.email
+      %td= roll.available_photos
       %td= link_to 'Show', roll
       %td= link_to 'Edit', edit_roll_path(roll)
       %td= link_to 'Destroy', roll, :method => :delete, :data => { :confirm => 'Are you sure?' }
