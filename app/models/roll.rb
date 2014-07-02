@@ -1,6 +1,6 @@
 class Roll < ActiveRecord::Base
   belongs_to :user
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
   def available_photos
     remaining = self.size - photos.count

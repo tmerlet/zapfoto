@@ -20,7 +20,6 @@ class RollsController < ApplicationController
   # GET /rolls/new
   def new
     @roll = Roll.new
-    authorize! :new, @roll
   end
 
   # GET /rolls/1/edit
@@ -66,7 +65,7 @@ class RollsController < ApplicationController
   def destroy
     @roll.destroy
     authorize! :destroy, @roll
-    
+
     respond_to do |format|
       format.html { redirect_to rolls_url }
       format.json { head :no_content }
