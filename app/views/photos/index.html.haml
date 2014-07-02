@@ -12,7 +12,8 @@
 
   - @photos.each do |photo|
     %tr
-      %td= photo.image
+      %td
+        = image_tag photo.image
       %td= photo.roll
       %td= photo.latitude
       %td= photo.longitude
