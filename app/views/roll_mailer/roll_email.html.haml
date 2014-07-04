@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p
+      %h1
+      - @user.rolls.find(@roll_id).photos.each do |photo|
+        = image_tag photo.image_url(:negative) if photo.image?

@@ -11,8 +11,8 @@ class Roll < ActiveRecord::Base
   end
 
   def automailer(current_user)
-    if self.state = "full"
-      MailWorker.perform_async current_user.id
+    if self.available_photos == 0
+      MailWorker.perform_async current_user.id, self.id
     end
   end
 end
