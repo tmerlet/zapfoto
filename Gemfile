@@ -38,6 +38,7 @@ gem 'rmagick'
 gem 'fog'
 gem 'high_voltage', '~> 2.2.0'
 gem 'omniauth-facebook'
+gem 'httparty'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

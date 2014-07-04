@@ -1,5 +1,6 @@
 - if @roll.available_photos == 0
   %h1 Roll Full
+  = link_to "Print Roll", print_roll_path(@roll), target: "_blank"
   = link_to 'New Roll', new_roll_path
 - else
   %p

@@ -3,6 +3,9 @@ Zapfoto::Application.routes.draw do
 
   resources :rolls do
     resources :photos
+    member do
+      get :print
+    end
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
