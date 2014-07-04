@@ -38,6 +38,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
+        @roll.automailer(current_user)
         format.html { redirect_to roll_path(@roll), notice: 'Photo was successfully created.' }
         format.json { render action: 'show', status: :created, location: @photo }
       else

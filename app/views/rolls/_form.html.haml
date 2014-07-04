@@ -11,6 +11,6 @@
     = f.text_field :name
   .field
     = f.label :size
-    = f.select :size, options_for_select([25, 15, 10]), {}, {class: "form-control"}
+    = f.select :size, options_for_select([25, 15, 10, 1]), {}, {class: "form-control"}
   .actions
     = f.submit 'Save'

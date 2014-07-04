@@ -9,4 +9,10 @@ class Roll < ActiveRecord::Base
     self.save
     remaining
   end
+
+  def automailer(current_user)
+    if self.state = "full"
+      MailWorker.perform_async current_user.id
+    end
+  end
 end

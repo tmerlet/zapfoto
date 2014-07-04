@@ -39,6 +39,8 @@ gem 'fog'
 gem 'high_voltage', '~> 2.2.0'
 gem 'omniauth-facebook'
 gem 'httparty'
+gem 'sidekiq'
+gem 'sinatra', require: false
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

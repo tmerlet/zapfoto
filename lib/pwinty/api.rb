@@ -1,4 +1,4 @@
-require "httparty"
+require 'httparty'
 module Pwinty
   class Api
     ROOT_URL = 'https://sandbox.pwinty.com'
@@ -19,32 +19,32 @@ module Pwinty
     def new_order roll, current_user
       # get an order id
       order = request(:post,'/Orders',{params:{
-        countryCode: "GB",
-        qualityLevel: "Pro",
+        countryCode: 'GB',
+        qualityLevel: 'Pro',
         useTracked: true,
         recipientName: "#{current_user.name}",
-        payment:"InvoiceRecipient"
+        payment:'InvoiceRecipient'
       }})
 
-      order_id = order["id"]
-      order_payment_url = order["paymentUrl"]
+      order_id = order['id']
+      order_payment_url = order['paymentUrl']
 
       # add roll to pwinty
       roll.photos.each do |photo|
         request(:post, "/v2.1/Orders/#{order_id}/Photos", {body:{
-          type: "4x4",
+          type: '4x4',
           url: "#{photo.image}",
-          copies: "1",
-          priceToUser: "299",
-          sizing: "Crop"
+          copies: '1',
+          priceToUser: '299',
+          sizing: 'Crop'
         }})
       end
 
-      order_valid = request(:get, "/v2.1/Orders/#{order_id}/SubmissionStatus", {})["isValid"]
+      order_valid = request(:get, "/v2.1/Orders/#{order_id}/SubmissionStatus", {})['isValid']
 
       if order_valid
         request(:post, "/v2.1/Orders/#{order_id}/Status", {body:{
-          status: "AwaitingPayment"
+          status: 'AwaitingPayment'
         }})
         order_payment_url
       else

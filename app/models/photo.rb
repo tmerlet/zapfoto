@@ -3,5 +3,5 @@ class Photo < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  validates_format_of :image, :with => %r{\.(png|jpg|jpeg)\A}i, message: "Photo must be .png, .jpg or .jpeg"
+  # validates_format_of :image, :with => %r{\.(png|jpg|jpeg)\A}i, message: "Photo must be .png, .jpg or .jpeg"
 end
