@@ -37,6 +37,17 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [150, 150]
   end
 
+  version :thumb do
+    process :create_spread
+    process :resize_to_limit => [150, 150]
+  end
+
+  def create_spread
+    manipulate! do |img|
+      img.spread(radius=150)
+    end
+  end
+
   def create_negative
     manipulate! do |img|
       img.solarize(threshold=50)

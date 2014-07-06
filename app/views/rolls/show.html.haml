@@ -1,14 +1,19 @@
-- if @roll.available_photos == 0
-  %h1 Roll Full
-  = link_to "Print Roll", print_roll_path(@roll), target: "_blank"
-  = link_to 'New Roll', new_roll_path
-- else
-  %p
-    %b Name:
-    = @roll.name
+.container-fluid
+  .row
+    .col-md-12.roll-show-1
+    - if @roll.available_photos == 0
+      %h1.jumbo Roll Full
+      = link_to "Print Roll", print_roll_path(@roll), target: "_blank", class: 'btn btn-primary btn-lg btn-block'
+      = link_to 'New Roll', new_roll_path, class: 'btn btn-primary btn-lg btn-block'
+    - else
+      %h1
+        = @roll.name
+      %h1.jumbo
+        = @roll.available_photos
+      %h1
+        remaining photos
+      -# .col-md-12.roll-show-2
+      -#   - @roll.photos.each do |photo|
+      -#     = image_tag photo.image_url(:thumb) if photo.image?
 
-  %p
-    %b Remaining Photos:
-    = @roll.available_photos
-
-  = render partial: "photos/form"
+      = render partial: "photos/form"

@@ -6,11 +6,11 @@
         - @roll.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :size
-    = f.select :size, options_for_select([25, 15, 10, 5, 1]), {}, {class: "form-control"}
+  .field.form-group
+    = f.text_field :name, autofocus: true, placeholder: 'name to your roll', class: 'form-control'
+  .field.form-group
+    = f.label 'Select the number of photos for this roll'
+    %br
+    = f.select :size, options_for_select([25, 15, 10, 1]), {}, class: "form-control"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Create Roll', class: 'btn btn-primary btn-lg btn-block'
