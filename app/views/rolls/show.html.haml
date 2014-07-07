@@ -16,7 +16,7 @@
       - else
         %h1
           remaining photos
+      = render partial: "photos/form"
     -# .col-md-12.roll-child
     -#   - @roll.photos.each do |photo|
     -#     = image_tag photo.image_url(:thumb) if photo.image?
-      = render partial: "photos/form"
