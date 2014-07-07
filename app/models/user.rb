@@ -6,14 +6,12 @@ class User < ActiveRecord::Base
 
   has_many :rolls
 
-  # mount_uploader :image, AvatarUploader
-
   def self.from_omniauth(auth)
     user = where(auth.slice(:provider, :uid)).first_or_initialize
     user.email = auth.info.email
     user.password = Devise.friendly_token[0,20]
-    user.name = auth.info.name   # assuming the user model has a name
-    user.image = auth.info.image # assuming the user model has an image
+    user.name = auth.info.name
+    user.image = auth.info.image
     user.skip_confirmation!
     user.save
     user
