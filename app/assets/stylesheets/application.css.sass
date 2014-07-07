@@ -1,21 +1,33 @@
+// Global Colors
 $body-bg: #FFF400
 $brand-primary: #000
 $navbar-default-link-color: #FFF
-$navbar-default-link-hover-color: #B4F200
-$navbar-default-link-active-color: #B4F200
+$navbar-default-link-hover-color: #FFF
+$navbar-default-link-active-color: #FFF
 $navbar-default-bg: #620CAC
 $navbar-default-brand-color: #FFF
 $btn-primary-bg: #BE008A
-$alert-info-bg: #B4F200
-$alert-info-border: #CFF55F
+$btn-success-bg: #3B5998
+$state-info-bg: #8E53C0
+$state-info-border: #7531B1
+$state-info-text: #FFF
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
 @import "photos"
 @import "rolls"
 
+// application.html.haml Style
 body
-  padding-top: 60px
+  padding-top: 70px
 
 h1.jumbo
   font-size: 72px
+
+.avatar
+  border-radius: 100%
+  height: 40px
+
+.alert
+  li
+    list-style-type: none

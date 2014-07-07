@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :rolls
 
+  # mount_uploader :image, AvatarUploader
+
   def self.from_omniauth(auth)
     user = where(auth.slice(:provider, :uid)).first_or_initialize
     user.email = auth.info.email

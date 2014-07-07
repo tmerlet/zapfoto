@@ -2,8 +2,8 @@
 %html
   %head
     %title Zapfoto
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
     = csrf_meta_tags
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name: "viewport"}
   %body
@@ -21,17 +21,26 @@
             - if user_signed_in?
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  = image_tag current_user.image, class: "avatar"
                   = current_user.email
                   %b.caret
                 %ul.dropdown-menu
                   %li
                     = link_to 'Logout', destroy_user_session_path, method: 'delete'
                   %li
-                    = link_to 'Options', edit_user_registration_path
+                    = link_to 'Edit Profile', edit_user_registration_path
+            - else
+              - if controller_name != 'registrations'
+                %li
+                  = link_to 'Sign Up', new_user_registration_path
+              - if controller_name != 'sessions'
+                %li
+                  = link_to 'Login', new_user_session_path
 
     -flash.each do |name, message|
       %div{class: "alert alert-info alert-dismissable"}
         %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &#215;
         = message
     .text-center
-      = yield
+      #main-yield.container{style: "display:none;"}
+        = yield

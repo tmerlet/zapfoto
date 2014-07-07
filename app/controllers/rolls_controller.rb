@@ -19,10 +19,11 @@ class RollsController < ApplicationController
 
   def print
     @roll = Roll.find(params[:id])
+    authorize! :print, @roll
     pwinty = Pwinty::Api.new
     order_url = pwinty.new_order(@roll, current_user)
     redirect_to order_url
-    authorize! :print, @roll
+
   end
 
   # GET /rolls/new
