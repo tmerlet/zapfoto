@@ -19,6 +19,9 @@
         #navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
+              - if current_user.current_roll
+                %li
+                  = link_to "Current Roll", roll_path(current_user.current_roll), class: 'btn btn-default navbar-btn', type: 'button'
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                   = image_tag current_user.image, class: "avatar"

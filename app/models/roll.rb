@@ -12,12 +12,11 @@ class Roll < ActiveRecord::Base
     end
   end
 
-
   def available_photos
     remaining = self.size - photos.count
-    self.current = false if remaining == 0 && self.current  != false
+    self.current = false if remaining == 0 && self.current != false
     self.state = "full" if remaining == 0 && self.current != "full"
-    self.save
+    self.save!(validate: false)
     remaining
   end
 

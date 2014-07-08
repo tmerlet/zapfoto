@@ -10,12 +10,8 @@
         = @roll.name
       %h1.jumbo
         = @roll.available_photos
-      - if @roll.available_photos <= 1
-        %h1
-          remaining photo
-      - else
-        %h1
-          remaining photos
+      %h1
+        remaining
       = render partial: "photos/form"
     -# .col-md-12.roll-child
     -#   - @roll.photos.each do |photo|

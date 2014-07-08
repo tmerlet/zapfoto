@@ -41,6 +41,7 @@ gem 'omniauth-facebook'
 gem 'httparty'
 gem 'sidekiq'
 gem 'sinatra', require: false
+gem 'jquery-fileupload-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
