@@ -1,4 +1,4 @@
-redis_url = ENV["REDISTOGO_URL"] || "127.0.0.1:6379"
+redis_url = ENV["REDISTOGO_URL"] || "http://127.0.0.1:6379"
 
 config_params = {
   :url => redis_url,
