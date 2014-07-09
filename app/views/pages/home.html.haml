@@ -1,12 +1,14 @@
 .jumbotron
-  .page-header
-    %p
-      %h1
-        %span.glyphicon.glyphicon-flash
-        %strong
-          Zapfoto
-      %p Zapfoto is very rare
-      %p Zapfoto might be the most important app ever
-      %p Jesus used Zapfoto
+  .jumbo-header
+    %h1
+      %span.glyphicon.glyphicon-flash
+      Zapfoto
+
+    -# %p Zapfoto is very rare
+    -# %p Zapfoto might be the most important app ever
+    -# %p Jesus used Zapfoto
+
+  %iframe{allowfullscreen: "", frameborder: "0", height: "281", mozallowfullscreen: "", src: "//player.vimeo.com/video/100317301?title=0&byline=0&portrait=0&autoplay=1", webkitallowfullscreen: "", width: "500"}
+
 = link_to "LOGIN", new_user_session_path, class: "btn btn-primary btn-block"
 = link_to "SIGN UP", new_user_registration_path, class: "btn btn-primary btn-block"
