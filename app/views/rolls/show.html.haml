@@ -1,3 +1,5 @@
+:javascript
+  window.roll_id = #{@roll.id}
 .container-fluid
   .row.roll-parent
     .col-md-12
@@ -6,6 +8,9 @@
       = link_to "Print Roll", print_roll_path(@roll), target: "_blank", class: 'btn btn-primary btn-lg btn-block'
       = link_to 'New Roll', new_roll_path, class: 'btn btn-primary btn-lg btn-block'
     - else
+      %video{autoplay: ""}
+      %img{src: "", id: 'snapshot'}
+      %canvas{style: "display:none;", width:540, height: 480}
       %h1
         = @roll.name
       %h1.jumbo

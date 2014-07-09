@@ -80,6 +80,9 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.4)
+    gon (5.0.4)
+      actionpack (>= 2.3.0)
+      json
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -251,6 +254,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   fog
+  gon
   haml-rails
   high_voltage (~> 2.2.0)
   hirb

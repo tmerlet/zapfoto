@@ -7,13 +7,8 @@
           %li= msg
 
   .field
-    = f.file_field :image, {type: "file", capture: "camera", accept: "image/*", id: "upload_photo"}
+    = f.file_field :image, {type: "file", capture: "camera", accept: 'image/*', id: "upload_photo"}
   %br
 
 = button_tag "Take Photo", {class: "btn btn-primary btn-lg btn-block", id: "take_photo"}
-  
-%script#template-upload{type: "text/x-tmpl"}
-  .upload
-    {%=o.name%}
-    .progress
-      .bar{style: 'width: 0%'}
+= button_tag "Take Webcam Photo", {class: "btn btn-primary btn-lg btn-block", id: "take_photo_webcam"}
