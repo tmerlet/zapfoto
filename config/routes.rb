@@ -5,6 +5,7 @@ Zapfoto::Application.routes.draw do
     resources :photos
     member do
       get :print
+      get :available_photos
     end
   end
 

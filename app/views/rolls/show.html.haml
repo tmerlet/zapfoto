@@ -1,23 +1,23 @@
 :javascript
   window.roll_id = #{@roll.id}
-.container-fluid
-  .row.roll-parent
+.container
+  .row#roll_full{style: "#{'display:none;' if @roll.available_photos > 1}"}
     .col-md-12
-    - if @roll.available_photos == 0
       %h1.jumbo Roll Full
       = link_to "Print Roll", print_roll_path(@roll), target: "_blank", class: 'btn btn-primary btn-lg btn-block'
       = link_to 'New Roll', new_roll_path, class: 'btn btn-primary btn-lg btn-block'
-    - else
-      %video{autoplay: ""}
-      %img{src: "", id: 'snapshot'}
-      %canvas{style: "display:none;", width:540, height: 480}
-      %h1
-        = @roll.name
-      %h1.jumbo
-        = @roll.available_photos
-      %h1
-        remaining
+  - if @roll.available_photos >= 1
+    .row#roll_not_full
+      .col-md-6
+        #display_video{style: "display:none;"}
+          %video{autoplay: ""}
+          %img{src: "", id: 'snapshot'}
+          %canvas{style: "display:none;",width:540, height: 480}
+      .col-md-6
+        %h1
+          = @roll.name
+        %h1#available_photos.jumbo
+          = @roll.available_photos
+        %h1
+          remaining
       = render partial: "photos/form"
-    -# .col-md-12.roll-child
-    -#   - @roll.photos.each do |photo|
-    -#     = image_tag photo.image_url(:thumb) if photo.image?

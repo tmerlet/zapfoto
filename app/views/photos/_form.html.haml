@@ -10,5 +10,5 @@
     = f.file_field :image, {type: "file", capture: "camera", accept: 'image/*', id: "upload_photo"}
   %br
 
-= button_tag "Take Photo", {class: "btn btn-primary btn-lg btn-block", id: "take_photo"}
+= button_tag "Take Photo", {class: "btn btn-primary btn-lg btn-block", id: "take_photo", style: "display:none;"}
 = button_tag "Take Webcam Photo", {class: "btn btn-primary btn-lg btn-block", id: "take_photo_webcam"}

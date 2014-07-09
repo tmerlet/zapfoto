@@ -1,7 +1,6 @@
 $ ->
   # Check to see if users device supports getUserMedia
   navigator.getUserMedia = navigator.getUserMedia or navigator.webkitGetUserMedia or navigator.mozGetUserMedia or navigator.msGetUserMedia
-
   # Variables
   video = document.querySelector("video")
   canvas = document.querySelector("canvas")
@@ -24,7 +23,15 @@ $ ->
           dataType: 'json'
           data: {photo: {base_64_photo: image_string}}
           success:
-            window.location.reload()
+            $.ajax
+              type: 'GET'
+              url: "/rolls/#{window.roll_id}/available_photos.json"
+              success:
+                (data) ->
+                  $('#available_photos').text(data)
+                  if data < 1
+                    $('#roll_not_full').remove()
+                    $('#roll_full').show() 
 
   $('#take_photo_webcam').click ->
     snapshot false
@@ -37,7 +44,10 @@ $ ->
           minWidth: 540,
           minHeight: 480
     , ((stream) ->
+      # $('#display_video').attr('style', 'display: block;')
+      $('#display_video').fadeIn(1000)
       video.src = window.URL.createObjectURL(stream)
     ), errorCallback
   else
-    alert "not available"
+    $('#take_photo').attr('style', 'display: block;')
+    $('#take_photo_webcam').attr('style', 'display: none;')

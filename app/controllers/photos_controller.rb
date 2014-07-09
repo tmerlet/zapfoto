@@ -34,12 +34,11 @@ class PhotosController < ApplicationController
   def create
     # Decodes uploaded base64 string
     file = uploaded_picture params[:photo][:base_64_photo]
-
     @roll = Roll.find(params[:roll_id])
     @photo = @roll.photos.build(photo_params)
     @photo.image = file
     authorize! :create, @photo
-    
+
     respond_to do |format|
       if @photo.save
         @roll.automailer(current_user)
