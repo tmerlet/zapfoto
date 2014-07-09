@@ -9,7 +9,7 @@ $ ->
   localMediaStream = null
 
   errorCallback = (e) ->
-    alert 'Uh oh, something went wrong, please try again.'
+    alert 'If you want to use the camera again, just allow access in the browser.'
     console.log e
 
   snapshot = ->
@@ -31,6 +31,7 @@ $ ->
               $('#roll_not_full').remove()
               $('#roll_full').show()
               $('#take_photo_webcam').show()
+              window.location.reload()
 
   toggleButtons = ->
     $('#take_photo_webcam').toggleClass('hidden')
