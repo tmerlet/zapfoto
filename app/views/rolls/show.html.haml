@@ -1,19 +1,28 @@
 :javascript
   window.roll_id = #{@roll.id}
 .container
-  .row#roll_full{style: "#{'display:none;' if @roll.available_photos > 1}"}
+  .row#roll_full{style: "#{'display: none' if @roll.available_photos >= 1}"}
     .col-md-12
       %h1.jumbo Roll Full
-      = link_to "Print Roll", print_roll_path(@roll), target: "_blank", class: 'btn btn-primary btn-lg btn-block'
+      %h3 You'll receive an e-mail shortly containing your negatives...
+      %h3
+        Hit 'Print' and you'll be redirected to our print service
+        = link_to 'Pwinty', 'http://www.pwinty.com', target: '_blank', class: 'pwinty'
+        to order your prints and see what kind debauchery you've been up to
+      = link_to "Print", print_roll_path(@roll), target: "_blank", class: 'btn btn-primary btn-lg btn-block'
       = link_to 'New Roll', new_roll_path, class: 'btn btn-primary btn-lg btn-block'
   - if @roll.available_photos >= 1
     .row#roll_not_full
-      .col-md-6
-        #display_video{style: "display:none;"}
+      .col-md-7
+        #display_info
+          %h1.jumbo YO!
+          %h1
+            allow Zapfoto to access your devices camera
+        #display_video{style: "display:none"}
           %video{autoplay: ""}
           %img{src: "", id: 'snapshot'}
-          %canvas{style: "display:none;",width:540, height: 480}
-      .col-md-6
+          %canvas{class: "hidden",width:540, height: 480}
+      .col-md-5.hidden#remaining_photos
         %h1
           = @roll.name
         %h1#available_photos.jumbo

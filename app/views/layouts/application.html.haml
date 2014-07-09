@@ -22,6 +22,9 @@
               - if current_user.current_roll
                 %li
                   = link_to "Current Roll", roll_path(current_user.current_roll), class: 'btn btn-default navbar-btn', type: 'button'
+              - else
+                %li
+                  = link_to "New Roll", new_roll_path, class: 'btn btn-default navbar-btn', type: 'button'
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                   = image_tag current_user.image, class: "avatar"

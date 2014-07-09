@@ -11,4 +11,6 @@
   %br
 
 = button_tag "Take Photo", {class: "btn btn-primary btn-lg btn-block", id: "take_photo", style: "display:none;"}
-= button_tag "Take Webcam Photo", {class: "btn btn-primary btn-lg btn-block", id: "take_photo_webcam"}
+= button_tag "Take Webcam Photo", {class: "btn btn-primary btn-lg btn-block hidden", id: "take_photo_webcam"}
+= button_tag "Loading...", {class: "btn btn-primary btn-lg btn-block hidden", id: "take_photo_webcam_disabled", disabled: true}
+= audio_tag('camera-shutter-click-01.mp3', id: 'camera_shutter')

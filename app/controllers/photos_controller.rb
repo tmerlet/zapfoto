@@ -43,7 +43,9 @@ class PhotosController < ApplicationController
       if @photo.save
         @roll.automailer(current_user)
         format.html { redirect_to roll_path(@roll), notice: 'Photo was successfully created.' }
-        format.json { render json: @photo }
+        format.json { render json: {
+          available_photos: @roll.available_photos
+          } }
       else
         format.html { render action: 'new' }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
