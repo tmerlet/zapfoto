@@ -61,3 +61,4 @@ $ ->
     $('#display_info').remove()
     $('#take_photo_webcam').remove()
     $('#take_photo').show()
+    $('#remaining_photos').fadeIn(1000).toggleClass('hidden')
