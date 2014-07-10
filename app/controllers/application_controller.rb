@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
       session["user_return_to"] || new_roll_path
     end
   end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
 end

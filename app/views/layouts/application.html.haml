@@ -19,7 +19,7 @@
         #navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
-              - if current_user.current_roll.persisted?
+              - if current_user.current_roll && current_user.current_roll.persisted?
                 %li
                   = link_to "Current Roll", roll_path(current_user.current_roll), class: 'btn btn-default navbar-btn', type: 'button'
               - else
@@ -48,5 +48,12 @@
         %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &#215;
         = message
     .text-center
-      #main-yield.container{style: "display:none;"}
+      #main-yield.container-fluid{style: "display:none;"}
         = yield
+    .container-fluid
+      %nav.navbar.navbar-default.navbar-fixed-bottom{role: "navigation"}
+        .container.footer
+          %li
+            %h5
+              %span.glyphicon.glyphicon-copyright-mark
+              chris williams for general assembly
