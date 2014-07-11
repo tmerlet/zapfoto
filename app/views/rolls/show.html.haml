@@ -24,9 +24,10 @@
           %canvas{class: "hidden",width:540, height: 480}
       .col-md-5.hidden#remaining_photos
         %h1
+          Roll:
           = @roll.name
         %h1#available_photos.jumbo
           = @roll.available_photos
         %h1
-          remaining
+          remaining in this roll
       = render partial: "photos/form"

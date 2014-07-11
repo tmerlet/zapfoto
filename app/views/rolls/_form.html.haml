@@ -8,11 +8,11 @@
 
   .field.form-group
     %h3
-      = f.label "Number Of Photos"
+      = f.label "How many photos in this roll?"
     = f.select :size, options_for_select([25, 15, 10, 5, 1]), {}, class: "form-control"
   .field.form-group
     %h3
-      = f.label :name
+      = f.label "Give Your Roll A Name"
     = f.text_field :name, autofocus: true, class: 'form-control'
   .actions
     = f.submit 'Create Roll', class: 'btn btn-primary btn-lg btn-block'
