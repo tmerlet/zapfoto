@@ -1,7 +1,11 @@
 require "httparty"
 module Pwinty
   class Api
-    ROOT_URL = 'https://sandbox.pwinty.com'
+    # Sandbox URL
+    # ROOT_URL = 'https://sandbox.pwinty.com'
+
+    # Live URL
+    ROOT_URL = 'https://api.pwinty.com'
 
     def initialize
       @merchantId = ENV['PWINTY_MERCHANT_ID']
