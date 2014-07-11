@@ -35,7 +35,7 @@ module Pwinty
           type: "4x4",
           url: "#{photo.image}",
           copies: "1",
-          priceToUser: "299",
+          priceToUser: "99",
           sizing: "Crop"
         }})
       end
