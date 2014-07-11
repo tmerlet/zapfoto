@@ -1,16 +1,18 @@
 = form_for @roll do |f|
   - if @roll.errors.any?
-    #error_explanation
+    #error_explanation{class: "alert alert-info alert-dismissable"}
       %h2= "#{pluralize(@roll.errors.count, "error")} prohibited this roll from being saved:"
       %ul
         - @roll.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :size
-    = f.select :size, options_for_select([25, 15, 10]), {}, {class: "form-control"}
+  .field.form-group
+    %h3
+      = f.label "Number Of Photos"
+    = f.select :size, options_for_select([25, 15, 10, 5, 1]), {}, class: "form-control"
+  .field.form-group
+    %h3
+      = f.label :name
+    = f.text_field :name, autofocus: true, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Create Roll', class: 'btn btn-primary btn-lg btn-block'

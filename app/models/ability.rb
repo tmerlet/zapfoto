@@ -11,6 +11,7 @@ class Ability
         photo.roll.user.id == user.id
       end
       can :create, Roll, :user_id => user.id
+      can :print, Roll, :user_id => user.id
       can :create, Photo do |photo|
         photo.roll.user.id == user.id
       end

@@ -32,20 +32,27 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
+    # Decodes uploaded base64 string
+    file = uploaded_picture params[:photo][:base_64_photo]
     @roll = Roll.find(params[:roll_id])
     @photo = @roll.photos.build(photo_params)
+    @photo.image = file
     authorize! :create, @photo
 
     respond_to do |format|
       if @photo.save
+        @roll.automailer(current_user)
         format.html { redirect_to roll_path(@roll), notice: 'Photo was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @photo }
+        format.json { render json: {
+          available_photos: @roll.available_photos
+          } }
       else
         format.html { render action: 'new' }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end
   end
+
 
   # PATCH/PUT /photos/1
   # PATCH/PUT /photos/1.json
@@ -83,5 +90,14 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:image, :latitude, :longitude)
+    end
+
+    def uploaded_picture base_64_string
+      return unless base_64_string
+      base_64_string.gsub!("data:image/png;base64,", "")
+      tempfile = Tempfile.new ['upload', 'jpg']
+      tempfile.binmode
+      tempfile.write(Base64.decode64(base_64_string))
+      ActionDispatch::Http::UploadedFile.new(tempfile: tempfile, filename: 'upload.jpg')
     end
 end

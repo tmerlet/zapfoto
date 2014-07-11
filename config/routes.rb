@@ -1,12 +1,15 @@
 Zapfoto::Application.routes.draw do
-
+  require 'sidekiq/web'
 
   resources :rolls do
     resources :photos
     member do
       get :print
+      get :available_photos
     end
   end
+
+  mount Sidekiq::Web => '/sidekiq'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.

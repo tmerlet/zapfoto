@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body{style: 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif'}
+    %h1.jumbo
+      Zapfoto
+    %h3 Whoa! Looks like you had a crazy one.  Here are your negatives...
+    %p
+      %h1
+      - @user.rolls.find(@roll_id).photos.each do |photo|
+        = image_tag photo.image_url(:negative) if photo.image?

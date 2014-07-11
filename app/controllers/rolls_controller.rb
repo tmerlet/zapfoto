@@ -1,5 +1,5 @@
 class RollsController < ApplicationController
-  before_action :set_roll, only: [:show, :edit, :update, :destroy]
+  before_action :set_roll, only: [:show, :edit, :update, :destroy, :available_photos]
   before_filter :authenticate_user!
 
   # GET /rolls
@@ -19,10 +19,11 @@ class RollsController < ApplicationController
 
   def print
     @roll = Roll.find(params[:id])
+    authorize! :print, @roll
     pwinty = Pwinty::Api.new
     order_url = pwinty.new_order(@roll, current_user)
     redirect_to order_url
-    authorize! :print, @roll
+
   end
 
   # GET /rolls/new
@@ -40,7 +41,6 @@ class RollsController < ApplicationController
   def create
     @roll = current_user.rolls.build(roll_params)
     authorize! :create, @roll
-
     respond_to do |format|
       if @roll.save
         format.html { redirect_to @roll, notice: 'Roll was successfully created.' }
@@ -49,6 +49,13 @@ class RollsController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @roll.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def available_photos
+    authorize! :show, @roll
+    respond_to do |format|
+      format.json { render json: @roll.available_photos }
     end
   end
 
