@@ -10,15 +10,3 @@ Things you may want to cover:
 * This app uses a Sidekiq worker for mailing negatives, if deploying on Heroku you will need an extra dyno for Sidekiq
 
 * Clone repo, bundle install(there is a procfile that runs the bundle exec sidekiq command)
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
