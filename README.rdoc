@@ -5,11 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.1.1
 
-* System dependencies
+* This app uses a Sidekiq worker for mailing negatives, if deploying on Heroku you will need an extra dyno for Sidekiq
 
-* Configuration
+* Clone repo, bundle install(there is a procfile that runs the bundle exec sidekiq command)
 
 * Database creation
 
@@ -22,7 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
