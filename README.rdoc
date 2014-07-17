@@ -1,5 +1,7 @@
 == README
 
+What is it?
+
 Zapfoto is an app that emulates a disposable camera.
 
 How it works:
@@ -22,3 +24,7 @@ Some other stuff:
 * Clone repo, bundle install(there is a procfile that runs the bundle exec sidekiq command)
 
 I promise I'll right a better README soon!
+
+Licensing:
+
+MIT License.
