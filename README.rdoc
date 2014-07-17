@@ -1,12 +1,24 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Zapfoto is an app that emulates a disposable camera.
 
-Things you may want to cover:
+How it works:
+
+Sign-in:
+
+- Sign up with e-mail or facebook.
+- Create a new roll: select how many photos you would like your roll to have and give your roll a name.
+- Take pictures using your mobile devices camera or webcam.
+- Once your roll is filled-up you will receive an e-mail within 24hrs containing the negatives of your roll.
+- Click 'Print' and you will be redirected to Pwinty to checkout and receive prints of your photos in the mail within 48hrs.
+- Click 'New Roll' to start get started on a new roll.
+
+Some other stuff:
 
 * Ruby version 2.1.1
 
 * This app uses a Sidekiq worker for mailing negatives, if deploying on Heroku you will need an extra dyno for Sidekiq
 
 * Clone repo, bundle install(there is a procfile that runs the bundle exec sidekiq command)
+
+I promise I'll right a better README soon!
