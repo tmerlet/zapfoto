@@ -18,11 +18,11 @@
       %td= roll.state
       %td= roll.current
       %td= roll.size
-      %td= current_user.email
+      %td= roll.user.email if roll.user.present?
       %td= roll.available_photos
-      %td= link_to 'Show', roll
-      %td= link_to 'Edit', edit_roll_path(roll)
-      %td= link_to 'Destroy', roll, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', roll, class: 'body-link'
+      %td= link_to 'Edit', edit_roll_path(roll), class: 'body-link'
+      %td= link_to 'Destroy', roll, :method => :delete, class: 'body-link', :data => { :confirm => 'Are you sure?' }
 
 %br
 

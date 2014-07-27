@@ -51,7 +51,7 @@ class RollsController < ApplicationController
       end
     end
   end
-  
+
   def available_photos
     authorize! :show, @roll
     respond_to do |format|
